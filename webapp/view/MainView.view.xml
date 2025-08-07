@@ -1,0 +1,72 @@
+<mvc:View controllerName="com.training.exer1gozar.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+    <VBox id="idVBox" class="sapUiSmallMargin">
+                <f:SimpleForm id="idSimpleForm" editable="true" layout="ResponsiveGridLayout" title="Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+                    <f:content>
+                        <Label id="idLblFName" text="{i18n>firstNameLbl}" />
+                        <Input id="idInptFName" value="" />
+                        <Label id="idLblLName" text="Last Name" />
+                        <Input id="idInptLName" value="" />
+                        <Label id="idLblMOP" text="Mode of Payment" />
+                        <Select id="idSelMOP" forceSelection="false" change="onChangeMOP">
+                            <items>
+                                <core:Item id="idItmCOD" text="Cash on Delivery" key="COD"/>
+                                <core:Item id="idItmCC" text="Credit Card" key="CC"/>
+                                <core:Item id="idItmGCash" text="GCash" key="GCASH"/>
+                            </items>
+                        </Select>
+                        <Label id="idLblPhone" text="Mobile Number" visible="false"/>
+                        <Input id="idInputPhone" value="" visible="false"/>
+                    </f:content>
+                </f:SimpleForm>
+                <Table id="idTableSCart" inset="false">
+                    <headerToolbar>
+                        <OverflowToolbar id="idOFT">
+                            <content>
+                                <Title id="idTableTitleSCart" text="Shopping Cart"/>
+                                <ToolbarSpacer id="idTSpacer"/>
+                                <Button id="idBtnAddItems" icon="sap-icon://cart-4" tooltip="Add to Cart" press="onAddItem"/>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="idCol1">
+                            <Text id="idColText1" text="Item" />
+                        </Column>
+                        <Column id="idCol2">
+                            <Text id="idColText2" text="Quantity" />
+                        </Column>
+                        <Column id="idCol3">
+                            <Text id="idColText3" text="Price" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="idColListItem1" vAlign="Middle">
+                            <cells>
+                                <Text id="idText1" text="iPhone 14 Pro Max" />
+                                <Text id="idText2" text="2" />
+                                <Text id="idText3" text="$2000" />
+                            </cells>
+                        </ColumnListItem>
+                        <ColumnListItem id="idColListItem2" vAlign="Middle">
+                            <cells>
+                                <Text id="idText4" text="Louis Vuitton Speedy" />
+                                <Text id="idText5" text="1" />
+                                <Text id="idText6" text="$14000" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+            <footer>
+            <OverflowToolbar id="idOFTFooter">
+                <ToolbarSpacer id="idTSpacerFooter"/>
+                <Button id="idBtnCheckout" text="Check Out" tooltip="Check Out" press="onPressCheckout"/>
+            </OverflowToolbar>
+            </footer>
+    </Page>
+</mvc:View>
