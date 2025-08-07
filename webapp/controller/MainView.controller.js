@@ -27,22 +27,51 @@ sap.ui.define([
             var sSelectedKey = oEvent.getParameter("selectedItem").getProperty("key");
             var oMobileLabel = this.getView().byId("idLblPhone");
             var oMobileInput = this.getView().byId("idInputPhone");
+
+            var oCredLabel = this.getView().byId("idLblCc");
+            var oCredInput = this.getView().byId("idInptCc");
             
+            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            var sMsgGCash = oTextBundle.getText("gCashSelect");
+            var sMsgCred = oTextBundle.getText("creditSelect");
+            var sMsgCod = oTextBundle.getText("codSelect");
+
             if (sSelectedKey === "GCASH"){
                 //show the mobile field
                 oMobileLabel.setVisible(true);
                 oMobileInput.setVisible(true);
-            }else {
+                oCredLabel.setVisible(false);
+                oCredInput.setVisible(false);
+
+                MessageToast.show(sMsgGCash);
+            }else if (sSelectedKey === "CC"){
+                //show credit card field
+                oCredLabel.setVisible(true);
+                oCredInput.setVisible(true);
                 oMobileLabel.setVisible(false);
                 oMobileInput.setVisible(false);
+
+                MessageToast.show(sMsgCred);
+            }else {
+                //oMobileLabel.setVisible(false);
+                //oMobileInput.setVisible(false);
+                //oCredLabel.setVisible(false);
+                //oCredInput.setVisible(false);
+
+                MessageToast.show(sMsgCod);
             }
         },
 
         onPressCheckout: function (){
+            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            var sMsg2 = oTextBundle.getText("reqFldBlank")
+
             var oInputFNameValue = this.getView().byId("idInptFName").getValue();
-            //check if first name is blank
-            if (oInputFNameValue === ""){
-                MessageToast.show("Required Field is blank");
+            var oInputLNameValue = this.getView().byId("idInptLName").getValue(); 
+
+            //check if first name is blank and if last name is blank
+            if (oInputFNameValue === "" && oInputLNameValue === ""){
+                MessageToast.show(sMsg2);
             }
         },
     });
