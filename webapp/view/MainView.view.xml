@@ -26,6 +26,7 @@
                         <Input id="idInptCc" value="" visible="false"/>
                     </f:content>
                 </f:SimpleForm>
+                <!-- this will be replaced by ShoppingCart.fragment
                 <Table id="idTableSCart" inset="false">
                     <headerToolbar>
                         <OverflowToolbar id="idOFT">
@@ -64,6 +65,8 @@
                         </ColumnListItem>
                     </items>
                 </Table>
+                -->
+                <core:Fragment fragmentName="com.training.exer1gozar.fragment.ShoppingCart" type="XML"/>
             </VBox>
             <footer>
             <OverflowToolbar id="idOFTFooter">
