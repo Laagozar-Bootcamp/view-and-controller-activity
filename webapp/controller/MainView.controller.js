@@ -15,12 +15,33 @@ sap.ui.define([
         },
 
         onAddItem: function(){
-            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-            var sMsg = oTextBundle.getText("addButtonMsg");
-            this.fnDisplayMsg(sMsg);
+            //commented this code for now
+            //var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            //var sMsg = oTextBundle.getText("addButtonMsg");
+            //this.fnDisplayMsg(sMsg);
+
+            //Instantiate the fragment
+            //Dialog creation (lazy)
+            if (!this.oDialog){
+                // By using loadFragment, we are adding the fragment as a dependent to the View
+                // By doing so, we can use the functions inside the view's controller
+                this.oDialog = this.loadFragment({
+                    name: "com.training.exer1gozar.fragment.ProductDialog"
+                });
+            }
+
+            this.oDialog.then(function(oDialog) {
+                oDialog.open();
+            });
         },
+
+        //code that calls fnDisplayMsg is currently commented out
         fnDisplayMsg: function(sMsg){
             MessageToast.show(sMsg);
+        },
+
+        onCloseDialog: function(){
+            this.getView().byId("idProductDialog").close();
         },
 
         onChangeMOP: function(oEvent){
