@@ -9,7 +9,7 @@
                     <f:content>
                         <Label id="idLblFName" text="{i18n>firstNameLbl}" />
                         <Input id="idInptFName" value="" />
-                        <Label id="idLblLName" text="{i18n>firstNameLbl}" />
+                        <Label id="idLblLName" text="{i18n>lastNameLbl}" />
                         <Input id="idInptLName" value="" />
                         <Label id="idLblMOP" text="{i18n>modeOfPaymt}" />
                         <Select id="idSelMOP" forceSelection="false" change="onChangeMOP">
