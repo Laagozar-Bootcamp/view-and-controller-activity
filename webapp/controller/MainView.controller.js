@@ -84,15 +84,31 @@ sap.ui.define([
         },
 
         onPressCheckout: function (){
-            var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-            var sMsg2 = oTextBundle.getText("reqFldBlank")
+            //var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+            //var sMsg2 = oTextBundle.getText("reqFldBlank")
+            //var oInputFNameValue = this.getView().byId("idInptFName").getValue();
+            //var oInputLNameValue = this.getView().byId("idInptLName").getValue(); 
 
-            var oInputFNameValue = this.getView().byId("idInptFName").getValue();
-            var oInputLNameValue = this.getView().byId("idInptLName").getValue(); 
+            var oInputFName = this.getView().byId("idInptFName");
+            var oInputLName = this.getView().byId("idInptLName");
+            var oInputFNameValue = oInputFName.getValue();
+            var oInputLNameValue = oInputLName.getValue();
+            var oRouter = this.getOwnerComponent().getRouter();
 
             //check if first name is blank and if last name is blank
             if (oInputFNameValue === "" && oInputLNameValue === ""){
-                MessageToast.show(sMsg2);
+                //MessageToast.show(sMsg2);
+
+                oInputFName.setValueState("Error");
+                oInputLName.setValueState("Error");
+            }else {
+                oInputFName.setValueState("None");
+                oInputLName.setValueState("None");
+
+                //Navigate to review page passing first
+                oRouter.navTo("RouteReviewPage", {
+                    firstName: oInputFNameValue
+                });
             }
         },
     });
