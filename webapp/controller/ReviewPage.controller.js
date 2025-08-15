@@ -40,7 +40,25 @@ function (Controller, MessageToast, History) {
 
             }
 
-        }
+        },
+
+        onPressTestMsg: function(){
+            if (!this.oDialog){
+                // By using loadFragment, we are adding the fragment as a dependent to the View
+                // By doing so, we can use the functions inside the view's controller
+                this.oDialog = this.loadFragment({
+                    name: "com.training.exer1gozar.fragment.CSSDialog"
+                });
+            }
+
+            this.oDialog.then(function(oDialog) {
+                oDialog.open();
+            });
+        },
+
+        onPressCloseMsgDialog: function(){
+            this.getView().byId("idMsgDialog").close();
+        },
         
     });
 

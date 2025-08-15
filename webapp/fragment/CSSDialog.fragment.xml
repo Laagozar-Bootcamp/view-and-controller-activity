@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+
+<Dialog id="idMsgDialog" title="Message Pop-up">
+    <Text id="idMsgTxt" text="You've clicked the message button!"></Text>
+    <beginButton>   
+        <Button id="idBtnMsgDialog" text="{i18n>dialogCloseButtonText}" press="onPressCloseMsgDialog"/>
+    </beginButton>
+    
+</Dialog>
+
+</core:FragmentDefinition>
