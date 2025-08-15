@@ -1,9 +1,11 @@
-<mvc:View controllerName="com.training.exer1gozar.controller.MainView"
+<mvc:View  controllerName="com.training.exer1gozar.controller.MainView"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:cards="sap.f.cards">
     <Page id="page" title="{i18n>title}" floatingFooter="true">
+    <cards:Header id="idFrstHeaderCSS" title="Main Page"></cards:Header>
     <VBox id="idVBox" class="sapUiSmallMargin">
                 <f:SimpleForm id="idSimpleForm" editable="true" layout="ResponsiveGridLayout" title="Details" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
                     <f:content>
@@ -72,6 +74,8 @@
             <OverflowToolbar id="idOFTFooter">
                 <ToolbarSpacer id="idTSpacerFooter"/>
                 <Button id="idBtnCheckout" text="{i18n>chkOut}" tooltip="Check Out" press="onPressCheckout"/>
+                <Button id="idBtnTestMsgFrst" text="Test Message Button" tooltip="Message Pop-up" press="onPressTestMsg"/>
+                <Button id="idBtnMoreMsgFrst" text="Another Message Button" tooltip="Message Pop-up Again" press="onPressTestMsg"/>
             </OverflowToolbar>
             </footer>
     </Page>

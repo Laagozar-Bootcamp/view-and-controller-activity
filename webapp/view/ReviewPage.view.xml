@@ -1,11 +1,13 @@
 <mvc:View controllerName="com.training.exer1gozar.controller.ReviewPage"
 xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
 xmlns="sap.m"
-xmlns:core="sap.ui.core">
+xmlns:core="sap.ui.core"
+xmlns:cards="sap.f.cards">
 
 <Page id="idReviewPage" title="{i18n>reviewTitle}" floatingFooter="true">
 
     <content>
+        <cards:Header id="idScndHeaderCSS" title="Second Page"></cards:Header>
         <core:Fragment fragmentName="com.training.exer1gozar.fragment.ShoppingCart" type="XML" />
     </content>
 
@@ -13,6 +15,8 @@ xmlns:core="sap.ui.core">
         <OverflowToolbar id="idOFTFooterReview">
             <ToolbarSpacer id="idTSpacerFooterReview"/>
             <Button id="idBtnBack" text="{i18n>backBtn}" tooltip="{i18n>backTooltip}" press="onPressBack"/>
+            <Button id="idBtnTestMsgScnd" text="Test Message Button" tooltip="Message Pop-up" press="onPressTestMsg"/>
+            <Button id="idBtnMoreMsgScnd" text="Another Message Button" tooltip="Message Pop-up Again" press="onPressTestMsg"/>
         </OverflowToolbar>
     </footer>
 
